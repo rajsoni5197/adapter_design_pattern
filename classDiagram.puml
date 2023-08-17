@@ -1,0 +1,24 @@
+@startuml AdapterClassDiagram
+
+class Client
+ {
+    # ctok : CelsiusToKelvin;
+    +Client():void;
+ }
+Client -> CelsiusToKelvin
+Interface CelsiusToKelvin
+{
+    +changeCelsiusToKelvin(int celsius): int;
+}
+
+class AdapterFahrenheitToKelvin extends CelsiusToKelvin
+{
+    # Ftok : FahrenheitToKelvin;
+    +AdapterFahrenheitToKelvin():void;
+    +changeCelsiusToKelvin(){overrides}:int;
+}
+AdapterFahrenheitToKelvin -> FahrenheitToKelvin 
+Class  FahrenheitToKelvin
+{
+    +changeFahrenheitTokelvin(int Fahrenheit):int;
+}
